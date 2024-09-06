@@ -8,6 +8,15 @@ use Illuminate\Support\Facades\Auth;
 
 class VisitController extends Controller
 {
+    public function index()
+    {
+        // Obtener las visitas del usuario autenticado
+        $visits = Visit::where('user_id', Auth::id())->get();
+
+        // Retornar la vista de visitas con las visitas del usuario
+        return view('visitas', compact('visits'));
+    }
+    
     public function create()
     {
         return view('visits.create');

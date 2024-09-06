@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BeneficiarioController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
@@ -38,6 +39,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/visits/create', [VisitController::class, 'create'])->name('visits.create');
     Route::post('/visits', [VisitController::class, 'store'])->name('visits.store');
+    Route::get('/visitas', [VisitController::class, 'index'])->name('visitas.index');
+    Route::get('/beneficiarios/create', [BeneficiarioController::class, 'create'])->name('beneficiarios.create');
+    Route::post('/beneficiarios', [BeneficiarioController::class, 'store'])->name('beneficiarios.store');
+    Route::get('/beneficiarios', [BeneficiarioController::class, 'index'])->name('beneficiarios.index');
 });
 
 require __DIR__ . '/auth.php';
