@@ -3,7 +3,7 @@
 @section('content')
     <div class="container mt-4">
         <h2>Lista de Beneficiarios</h2>
-
+        <a href="{{ route('beneficiarios.create') }}" class="btn btn-primary btn-sm">Registrar Nuevo</a>
         @if (session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}

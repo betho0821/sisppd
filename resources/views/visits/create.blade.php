@@ -7,6 +7,15 @@
         <form action="{{ route('visits.store') }}" method="POST" x-data="locationData()" x-init="getLocation()">
             @csrf
             <div class="mb-3">
+                <label for="beneficiario_id" class="form-label">Beneficiario</label>
+                <select name="beneficiario_id" id="beneficiario_id" class="form-select" required>
+                    <option value="">Seleccione un beneficiario</option>
+                    @foreach ($beneficiarios as $beneficiario)
+                        <option value="{{ $beneficiario->id }}">{{ $beneficiario->nombre }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="mb-3">
                 <label for="latitude" class="form-label">Latitud</label>
                 <input type="text" name="latitude" id="latitude" class="form-control" x-model="latitude" readonly
                     required>

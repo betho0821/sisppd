@@ -17,4 +17,9 @@ class Beneficiario extends Model
         'responsable',
         'telefono',
     ];
+
+    public function visitas()
+    {
+        return $this->hasMany(Visit::class);
+    }
 }
